@@ -1,0 +1,20 @@
+{
+    "name": "pegase-parser",
+    "build": {
+        "dockerfile": "Dockerfile",
+        "context": ".."
+    },
+    "customizations": {
+        "vscode": {
+            "extensions": [
+                "ms-python.python",
+                "ms-python.vscode-pylance"
+            ]
+        }
+    },
+    // On monte le dossier pour garder la session de navigation (cookies)
+    "mounts": [
+        "source=${localWorkspaceFolder}/browser_session,target=/workspaces/mon-projet/browser_session,type=bind"
+    ],
+    "remoteUser": "root"
+}

@@ -1,0 +1,15 @@
+services:
+  pegase-parser:
+    build: .
+    container_name: pegase-parser
+    restart: unless-stopped
+    environment:
+      - INP_USERNAME=${INP_USERNAME}
+      - INP_PASSWORD=${INP_PASSWORD}
+      - NTFY_TOPIC=${NTFY_TOPIC}
+      - NTFY_SERVER=${NTFY_SERVER:-https://ntfy.sh}
+      - NTFY_TOKEN=${NTFY_TOKEN}
+      - CRON_SCHEDULE=${CRON_SCHEDULE:-*/15 * * * *}
+    volumes:
+      - ./browser_session:/app/browser_session
+      - ./last_data.json:/app/last_data.json
