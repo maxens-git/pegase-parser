@@ -4,7 +4,11 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
-SESSION_DIR = os.path.join(os.getcwd(), "browser_session")
+DATA_DIR = os.path.join(os.getcwd(), "data")
+if not os.path.exists(DATA_DIR):
+    os.makedirs(DATA_DIR)
+
+SESSION_DIR = os.path.join(DATA_DIR, "browser_session")
 if not os.path.exists(SESSION_DIR):
     os.makedirs(SESSION_DIR)
 

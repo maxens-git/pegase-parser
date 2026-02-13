@@ -1,8 +1,7 @@
 .env
-last_data.json
+data/
 __pycache__/
 *.py[cod]
 *.pyo
 .venv/
 venv/
-browser_session/

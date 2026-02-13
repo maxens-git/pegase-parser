@@ -9,7 +9,11 @@ from notifier import notify_changes
 
 load_dotenv()
 
-DATA_FILE = os.path.join(os.getcwd(), "last_data.json")
+DATA_DIR = os.path.join(os.getcwd(), "data")
+if not os.path.exists(DATA_DIR):
+    os.makedirs(DATA_DIR)
+
+DATA_FILE = os.path.join(DATA_DIR, "last_data.json")
 
 
 def load_previous_data() -> dict:

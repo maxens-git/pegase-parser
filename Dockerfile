@@ -17,6 +17,6 @@ COPY *.py .
 COPY entrypoint.sh .
 RUN chmod +x entrypoint.sh
 
-RUN mkdir -p /app/browser_session
+RUN mkdir -p /app/data
 
 ENTRYPOINT ["/app/entrypoint.sh"]

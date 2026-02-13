@@ -11,5 +11,4 @@ services:
       - NTFY_TOKEN=${NTFY_TOKEN}
       - CRON_SCHEDULE=${CRON_SCHEDULE:-*/15 * * * *}
     volumes:
-      - ./browser_session:/app/browser_session
-      - ./last_data.json:/app/last_data.json
+      - ./data:/app/data
