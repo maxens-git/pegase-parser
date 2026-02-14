@@ -12,3 +12,13 @@ services:
       - CRON_SCHEDULE=${CRON_SCHEDULE:-*/15 * * * *}
     volumes:
       - ./data:/app/data
+
+  pegase-api:
+    build: .
+    container_name: pegase-api
+    restart: unless-stopped
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./data:/app/data
+    command: ["python", "api.py"]
