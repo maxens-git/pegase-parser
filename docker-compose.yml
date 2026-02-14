@@ -21,4 +21,5 @@ services:
       - "8000:8000"
     volumes:
       - ./data:/app/data
+    entrypoint: []
     command: ["python", "api.py"]
