@@ -60,3 +60,12 @@ def notify_changes(changes: list):
     message = "\n".join(lines)
     
     send_notification(title, message, priority="high")
+
+
+def notify_scraper_error(error_message: str = None):
+    title = "⚠️ Échec du scraping Pégase"
+    message = "Le scraper n'a pas réussi à récupérer les données."
+    if error_message:
+        message += f"\n\nErreur: {error_message}"
+    
+    send_notification(title, message, priority="high")

@@ -5,7 +5,7 @@ import pandas as pd
 from dotenv import load_dotenv
 
 from scraper import fetch_notes
-from notifier import notify_changes
+from notifier import notify_changes, notify_scraper_error
 
 load_dotenv()
 
@@ -56,10 +56,16 @@ def detect_changes(old_data: dict, new_data: list) -> list:
 async def main():
     print("🔄 Récupération des notes...")
     
-    data = await fetch_notes()
+    try:
+        data = await fetch_notes()
+    except Exception as e:
+        print(f"❌ Erreur lors du scraping: {e}")
+        notify_scraper_error(str(e))
+        return
     
     if not data:
         print("❌ Aucune donnée récupérée")
+        notify_scraper_error("Aucune donnée retournée par le scraper")
         return
     
     df = pd.DataFrame(data)
