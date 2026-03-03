@@ -1,6 +1,6 @@
 services:
   pegase-parser:
-    build: .
+    image: ghcr.io/maxens-git/pegase-parser:latest
     container_name: pegase-parser
     restart: unless-stopped
     environment:
@@ -14,7 +14,7 @@ services:
       - ./data:/app/data
 
   pegase-api:
-    build: .
+    image: ghcr.io/maxens-git/pegase-parser:latest
     container_name: pegase-api
     restart: unless-stopped
     ports:
