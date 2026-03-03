@@ -3,7 +3,7 @@ set -e
 
 printenv | grep -E '^(INP_|NTFY_)' > /app/.env
 
-CRON_SCHEDULE="${CRON_SCHEDULE:-*/15 * * * *}"
+CRON_SCHEDULE="${CRON_SCHEDULE:-*/15 7-23 * * *}"
 
 echo "📅 Configuration cron: $CRON_SCHEDULE"
 
